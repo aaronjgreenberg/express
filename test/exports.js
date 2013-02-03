@@ -10,7 +10,7 @@ describe('exports', function(){
   
   it('should expose connect middleware', function(){
     express.should.have.property('bodyParser');
-    express.should.have.property('session');
+    express.should.have.property('cookieSession');
     express.should.have.property('static');
   })
 

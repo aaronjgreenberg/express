@@ -33,7 +33,7 @@ app.use(express.static(__dirname + '/public'));
 
 // session support
 app.use(express.cookieParser('some secret here'));
-app.use(express.session());
+app.use(express.cookieSession());
 
 // parse request bodies (req.body)
 app.use(express.bodyParser());

@@ -9,13 +9,13 @@ var app = express();
 
 app.use(express.logger('dev'));
 
-// Required by session() middleware
+// Required by cookieSession() middleware
 // pass the secret for signed cookies
-// (required by session())
+// (required by cookieSession())
 app.use(express.cookieParser('keyboard cat'));
 
 // Populates req.session
-app.use(express.session());
+app.use(express.cookieSession());
 
 app.get('/', function(req, res){
   var body = '';

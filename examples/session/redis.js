@@ -3,20 +3,20 @@
 var express = require('../..');
 
 // pass the express to the connect redis module
-// allowing it to inherit from express.session.Store
+// allowing it to inherit from express.cookieSession.Store
 var RedisStore = require('connect-redis')(express);
 
 var app = express();
 
 app.use(express.logger('dev'));
 
-// Required by session() middleware
+// Required by cookieSession() middleware
 // pass the secret for signed cookies
-// (required by session())
+// (required by cookieSession())
 app.use(express.cookieParser('keyboard cat'));
 
 // Populates req.session
-app.use(express.session({ store: new RedisStore }));
+app.use(express.cookieSession({ store: new RedisStore }));
 
 app.get('/', function(req, res){
   var body = '';
